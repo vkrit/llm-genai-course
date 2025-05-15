@@ -1,7 +1,7 @@
-
 site_name: LLM Generative AI Course
 theme:
   name: material
+
 nav:
   - Home: index.md
   - Notebooks:
@@ -9,12 +9,10 @@ nav:
       - Fine-Tuning with LoRA: notebooks/02_lora_finetuning.md
       - RAG with ChromaDB: notebooks/03_rag_with_chromadb.md
       - Prompting Exercise: notebooks/EXERCISE_llm_prompting.md
-
   - 📅 Schedule: schedule.md
+  - 📌 About the Instructor: about.md
+  - 📤 Project Submission: submission.md
 
 extra:
   logo: https://placehold.co/150x50?text=LLM+Logo
   favicon: https://placehold.co/48x48.png?text=AI
-
-  - 📌 About the Instructor: about.md
-  - 📤 Project Submission: submission.md
