@@ -15,14 +15,19 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install dependencies
-        run: |
-          pip install mkdocs-material
-
-      - name: Deploy to GitHub Pages
+      - name: Build and manually deploy to gh-pages
         env:
           GH_DEPLOY_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          mkdocs gh-deploy --force --remote-url "https://${GH_DEPLOY_TOKEN}@github.com/vkrit/llm-genai-course.git"
+          pip install mkdocs-material
+          mkdocs build
+
+          cd site
+          git init
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git remote add origin https://x-access-token:${GH_DEPLOY_TOKEN}@github.com/vkrit/llm-genai-course.git
+          git checkout -b gh-pages
+          git add .
+          git commit -m "Deploy site"
+          git push --force origin gh-pages
