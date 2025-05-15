@@ -1,0 +1,11 @@
+
+site_name: LLM Generative AI Course
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Notebooks:
+      - Inference with LLaMA 3: notebooks/01_inference_llama3.md
+      - Fine-Tuning with LoRA: notebooks/02_lora_finetuning.md
+      - RAG with ChromaDB: notebooks/03_rag_with_chromadb.md
+      - Prompting Exercise: notebooks/EXERCISE_llm_prompting.md
