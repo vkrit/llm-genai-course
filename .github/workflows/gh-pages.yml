@@ -1,8 +1,11 @@
-name: Deploy MkDocs site to Pages
+name: Deploy MkDocs site to GitHub Pages
 
 on:
   push:
     branches: [main]
+
+permissions:
+  contents: write
 
 jobs:
   deploy:
@@ -10,22 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: Build and manually deploy to gh-pages
+      - name: Install MkDocs and build site
         run: |
           pip install mkdocs-material
           mkdocs build
 
-          cd site
-          git init
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git remote add origin "https://x-access-token:${{ secrets.GH_DEPLOY_TOKEN }}@github.com/vkrit/llm-genai-course.git"
-          git checkout -b gh-pages
-          git add .
-          git commit -m 'Deploy site'
-          git push --force origin gh-pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
