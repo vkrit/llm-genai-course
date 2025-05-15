@@ -1,4 +1,10 @@
 
+<div align="center">
+  <img src="https://placehold.co/800x200?text=Generative+AI+Course" alt="Generative AI Course Banner" />
+</div>
+
+
+
 # 🧠 LLM Generative AI Course
 
 Welcome to the Generative AI course! This site provides access to notebooks, assignments, and learning resources for developers working with large language models.
