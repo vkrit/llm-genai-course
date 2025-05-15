@@ -1,1 +1,1 @@
-# GenAI Course README
+# GenAI Course README# trigger deploy
