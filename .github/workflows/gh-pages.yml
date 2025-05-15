@@ -1,4 +1,3 @@
-
 name: Deploy MkDocs site to Pages
 
 on:
@@ -22,8 +21,8 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
-          GH_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+          GH_DEPLOY_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
-          mkdocs gh-deploy --force --remote-name origin --remote-branch gh-pages
+          mkdocs gh-deploy --force --remote-url "https://${GH_DEPLOY_TOKEN}@github.com/vkrit/llm-genai-course.git"
