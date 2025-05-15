@@ -1,0 +1,1 @@
+// GitHub classroom integration script placeholder
